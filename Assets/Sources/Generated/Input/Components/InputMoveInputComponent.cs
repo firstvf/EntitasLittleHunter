@@ -9,12 +9,12 @@
 public partial class InputContext {
 
     public InputEntity moveInputEntity { get { return GetGroup(InputMatcher.MoveInput).GetSingleEntity(); } }
-    public MoveInputComponent moveInput { get { return moveInputEntity.moveInput; } }
+    public Project.Scripts.Components.MoveInputComponent moveInput { get { return moveInputEntity.moveInput; } }
     public bool hasMoveInput { get { return moveInputEntity != null; } }
 
     public InputEntity SetMoveInput(UnityEngine.Vector2 newValue) {
         if (hasMoveInput) {
-            throw new Entitas.EntitasException("Could not set MoveInput!\n" + this + " already has an entity with MoveInputComponent!",
+            throw new Entitas.EntitasException("Could not set MoveInput!\n" + this + " already has an entity with Project.Scripts.Components.MoveInputComponent!",
                 "You should check if the context already has a moveInputEntity before setting it or use context.ReplaceMoveInput().");
         }
         var entity = CreateEntity();
@@ -46,19 +46,19 @@ public partial class InputContext {
 //------------------------------------------------------------------------------
 public partial class InputEntity {
 
-    public MoveInputComponent moveInput { get { return (MoveInputComponent)GetComponent(InputComponentsLookup.MoveInput); } }
+    public Project.Scripts.Components.MoveInputComponent moveInput { get { return (Project.Scripts.Components.MoveInputComponent)GetComponent(InputComponentsLookup.MoveInput); } }
     public bool hasMoveInput { get { return HasComponent(InputComponentsLookup.MoveInput); } }
 
     public void AddMoveInput(UnityEngine.Vector2 newValue) {
         var index = InputComponentsLookup.MoveInput;
-        var component = (MoveInputComponent)CreateComponent(index, typeof(MoveInputComponent));
+        var component = (Project.Scripts.Components.MoveInputComponent)CreateComponent(index, typeof(Project.Scripts.Components.MoveInputComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceMoveInput(UnityEngine.Vector2 newValue) {
         var index = InputComponentsLookup.MoveInput;
-        var component = (MoveInputComponent)CreateComponent(index, typeof(MoveInputComponent));
+        var component = (Project.Scripts.Components.MoveInputComponent)CreateComponent(index, typeof(Project.Scripts.Components.MoveInputComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

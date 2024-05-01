@@ -19,7 +19,7 @@ public static class InputComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(LookInputComponent),
-        typeof(MoveInputComponent)
+        typeof(Project.Scripts.Components.LookInputComponent),
+        typeof(Project.Scripts.Components.MoveInputComponent)
     };
 }

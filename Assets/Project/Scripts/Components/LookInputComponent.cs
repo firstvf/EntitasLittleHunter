@@ -2,8 +2,11 @@
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 
-[Input, Unique]
-public class LookInputComponent : IComponent
+namespace Project.Scripts.Components
 {
-    public Vector2 Value;
+    [Input, Unique]
+    public class LookInputComponent : IComponent
+    {
+        public Vector2 Value;
+    }
 }

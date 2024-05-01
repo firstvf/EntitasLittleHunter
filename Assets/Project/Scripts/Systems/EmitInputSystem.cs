@@ -1,29 +1,34 @@
 ﻿using Entitas;
+using Project.Scripts.Interfaces;
 using UnityEngine;
 
-public class EmitInputSystem : IInitializeSystem, IExecuteSystem, ITearDownSystem
+namespace Project.Scripts.Systems
 {
-    private readonly InputContext _inputContext;
-    private readonly IInputService _inputService;
-
-    public EmitInputSystem(Contexts contexts, IInputService inputService)
+    public class EmitInputSystem : IInitializeSystem, IExecuteSystem, ITearDownSystem
     {
-        _inputContext = contexts.input;
-        _inputService = inputService;
-    }
+        private readonly InputContext _inputContext;
+        private readonly IInputService _inputService;
 
-    public void Initialize()
-    {
-        _inputContext.SetMoveInput(Vector2.zero);
-        _inputContext.SetLookInput(Vector2.zero);
-    }
+        public EmitInputSystem(Contexts contexts, IInputService inputService)
+        {
+            _inputContext = contexts.input;
+            _inputService = inputService;
+        }
 
-    public void Execute()
-    {
-        _inputContext.ReplaceMoveInput(_inputService.GetMovement);
-        _inputContext.ReplaceLookInput(_inputService.GetLook);
-    }
+        public void Initialize()
+        {
+            _inputContext.SetMoveInput(Vector2.zero);
+            _inputContext.SetLookInput(Vector2.zero);
+            
+        }
 
-    public void TearDown()
-    => _inputService.Dispose();
+        public void Execute()
+        {
+            _inputContext.ReplaceMoveInput(_inputService.GetMovement);
+            _inputContext.ReplaceLookInput(_inputService.GetLook);
+        }
+
+        public void TearDown()
+            => _inputService.Dispose();
+    }
 }

@@ -2,8 +2,11 @@ using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 
-[Input, Unique]
-public class MoveInputComponent : IComponent
+namespace Project.Scripts.Components
 {
-    public Vector2 Value;
+    [Input, Unique]
+    public class MoveInputComponent : IComponent
+    {
+        public Vector2 Value;
+    }
 }

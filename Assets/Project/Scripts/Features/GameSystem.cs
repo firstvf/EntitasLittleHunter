@@ -1,8 +1,14 @@
-public class GameSystem : Feature
+using Project.Scripts.Services;
+using Project.Scripts.Systems;
+
+namespace Project.Scripts.Features
 {
-    public GameSystem(Contexts contexts)
+    public class GameSystem : Feature
     {
-        Add(new CreateEntitySystem(contexts));
-        Add(new EmitInputSystem(contexts, new UnityInputServiceImplementation()));
+        public GameSystem(Contexts contexts)
+        {
+            Add(new CreateEntitySystem(contexts));
+            Add(new EmitInputSystem(contexts, new UnityInputServiceImplementation()));
+        }
     }
 }

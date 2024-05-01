@@ -9,12 +9,12 @@
 public partial class InputContext {
 
     public InputEntity lookInputEntity { get { return GetGroup(InputMatcher.LookInput).GetSingleEntity(); } }
-    public LookInputComponent lookInput { get { return lookInputEntity.lookInput; } }
+    public Project.Scripts.Components.LookInputComponent lookInput { get { return lookInputEntity.lookInput; } }
     public bool hasLookInput { get { return lookInputEntity != null; } }
 
     public InputEntity SetLookInput(UnityEngine.Vector2 newValue) {
         if (hasLookInput) {
-            throw new Entitas.EntitasException("Could not set LookInput!\n" + this + " already has an entity with LookInputComponent!",
+            throw new Entitas.EntitasException("Could not set LookInput!\n" + this + " already has an entity with Project.Scripts.Components.LookInputComponent!",
                 "You should check if the context already has a lookInputEntity before setting it or use context.ReplaceLookInput().");
         }
         var entity = CreateEntity();
@@ -46,19 +46,19 @@ public partial class InputContext {
 //------------------------------------------------------------------------------
 public partial class InputEntity {
 
-    public LookInputComponent lookInput { get { return (LookInputComponent)GetComponent(InputComponentsLookup.LookInput); } }
+    public Project.Scripts.Components.LookInputComponent lookInput { get { return (Project.Scripts.Components.LookInputComponent)GetComponent(InputComponentsLookup.LookInput); } }
     public bool hasLookInput { get { return HasComponent(InputComponentsLookup.LookInput); } }
 
     public void AddLookInput(UnityEngine.Vector2 newValue) {
         var index = InputComponentsLookup.LookInput;
-        var component = (LookInputComponent)CreateComponent(index, typeof(LookInputComponent));
+        var component = (Project.Scripts.Components.LookInputComponent)CreateComponent(index, typeof(Project.Scripts.Components.LookInputComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceLookInput(UnityEngine.Vector2 newValue) {
         var index = InputComponentsLookup.LookInput;
-        var component = (LookInputComponent)CreateComponent(index, typeof(LookInputComponent));
+        var component = (Project.Scripts.Components.LookInputComponent)CreateComponent(index, typeof(Project.Scripts.Components.LookInputComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

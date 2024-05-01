@@ -1,20 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Entitas;
 
-public class CreateEntitySystem : IInitializeSystem
+namespace Project.Scripts.Systems
 {
-    private readonly Contexts _contexts;
-
-    public CreateEntitySystem(Contexts contexts)
+    public class CreateEntitySystem : IInitializeSystem
     {
-        _contexts = contexts;
-    }
+        private readonly Contexts _contexts;
 
-    public void Initialize()
-    {
-        _contexts.game.CreateEntity();
+        public CreateEntitySystem(Contexts contexts)
+        {
+            _contexts = contexts;
+        }
+
+        public void Initialize()
+        {
+            _contexts.game.CreateEntity();
             
+        }
     }
 }
