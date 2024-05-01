@@ -6,8 +6,8 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed class SetingsAttribute : Entitas.CodeGeneration.Attributes.ContextAttribute {
+public sealed class SettingsAttribute : Entitas.CodeGeneration.Attributes.ContextAttribute {
 
-    public SetingsAttribute() : base("Setings") {
+    public SettingsAttribute() : base("Settings") {
     }
 }

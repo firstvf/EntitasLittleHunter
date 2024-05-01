@@ -6,16 +6,16 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class SetingsContext : Entitas.Context<SetingsEntity> {
+public sealed partial class SettingsContext : Entitas.Context<SettingsEntity> {
 
-    public SetingsContext()
+    public SettingsContext()
         : base(
-            SetingsComponentsLookup.TotalComponents,
+            SettingsComponentsLookup.TotalComponents,
             0,
             new Entitas.ContextInfo(
-                "Setings",
-                SetingsComponentsLookup.componentNames,
-                SetingsComponentsLookup.componentTypes
+                "Settings",
+                SettingsComponentsLookup.componentNames,
+                SettingsComponentsLookup.componentTypes
             ),
             (entity) =>
 
@@ -24,7 +24,7 @@ public sealed partial class SetingsContext : Entitas.Context<SetingsEntity> {
 #else
                 new Entitas.SafeAERC(entity),
 #endif
-            () => new SetingsEntity()
+            () => new SettingsEntity()
         ) {
     }
 }

@@ -273,6 +273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfd27724a1c08541869288466d73ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _firstSceneName: Launcher
+  _gameSettings: {fileID: 11400000, guid: 3f596a930eca14d4f88d823748cfc3f3, type: 2}
 --- !u!4 &1230779848
 Transform:
   m_ObjectHideFlags: 0
@@ -556,7 +558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1619989008}
   m_Layer: 0
-  m_Name: 33:21
+  m_Name: 51:09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
