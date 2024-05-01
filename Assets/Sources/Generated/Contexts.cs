@@ -28,9 +28,9 @@ public partial class Contexts : Entitas.IContexts {
     public GUIContext gUI { get; set; }
     public InputContext input { get; set; }
     public NetworkContext network { get; set; }
-    public SetingsContext setings { get; set; }
+    public SettingsContext settings { get; set; }
 
-    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { audio, framework, game, gameState, gUI, input, network, setings }; } }
+    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { audio, framework, game, gameState, gUI, input, network, settings }; } }
 
     public Contexts() {
         audio = new AudioContext();
@@ -40,7 +40,7 @@ public partial class Contexts : Entitas.IContexts {
         gUI = new GUIContext();
         input = new InputContext();
         network = new NetworkContext();
-        setings = new SetingsContext();
+        settings = new SettingsContext();
 
         var postConstructors = System.Linq.Enumerable.Where(
             GetType().GetMethods(),
@@ -82,7 +82,7 @@ public partial class Contexts {
             CreateContextObserver(gUI);
             CreateContextObserver(input);
             CreateContextObserver(network);
-            CreateContextObserver(setings);
+            CreateContextObserver(settings);
         } catch(System.Exception) {
         }
     }
